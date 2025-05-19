@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Congratulations!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #f9f9f9, #e6e6e6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    .subtitle {
+      margin: 1rem 0;
+      font-size: 18px;
+      color: #555;
+    }
+    .timer {
+      font-size: 22px;
+      color: red;
+      font-weight: bold;
+    }
+    input[type="email"] {
+      padding: 10px;
+      width: 100%;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">مبروك! لقد تم اختيارك!</div>
+    <div class="subtitle">لديك <span class="timer" id="countdown">02:00</span> للحصول على جائزتك</div>
+
+    <form action="https://your-cpa-link-here.com" method="GET">
+      <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" required />
+      <button type="submit">احصل عليها الآن</button>
+    </form>
+
+    <div class="footer">*هذا العرض محدود، فرصة واحدة لكل مستخدم</div>
+  </div>
+
+  <script>
+    let seconds = 120;
+    const countdown = document.getElementById('countdown');
+    setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+        let min = String(Math.floor(seconds / 60)).padStart(2, '0');
+        let sec = String(seconds % 60).padStart(2, '0');
+        countdown.textContent = `${min}:${sec}`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
